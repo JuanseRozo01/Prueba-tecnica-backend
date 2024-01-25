@@ -4,7 +4,7 @@
 
 const axios = require("axios");
 
-async function obtenerRepositorios() {
+async function getRepositories() {
     try {
       const response = await axios.get('https://api.github.com/users/google/repos?per_page=10&sort=stargazers');
       const repos = response.data;
@@ -14,8 +14,8 @@ async function obtenerRepositorios() {
         console.log(repo.name, '-', repo.stargazers_count, 'estrellas');
       });
     } catch (error) {
-      console.error('Error al obtener repositorios:', error);
+      console.error(error);
     }
   }
   
-  obtenerRepositorios();
+  getRepositories()
